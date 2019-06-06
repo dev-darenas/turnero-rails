@@ -1,0 +1,30 @@
+<h1>Clinica Versalles</h1>
+
+<ul class="list-group">
+
+</ul>
+
+<script>
+  let current_turns = []
+  $( document ).ready(function() {
+
+    setInterval(function() {
+      get_current_turns()
+    }, 5000);
+
+    let get_current_turns = function(){
+      $.get( "/turns/current_turns", function(data) {
+        $(".list-group").empty();
+        $.each(data.data, function( index, value ) {
+          console.log( index + ": " + value.id );
+          let component  = "<li class=\"list-group-item d-flex justify-content-between align-items-center\">"
+              component += value.name
+              component += "<span class=\"badge badge-primary badge-pill\">" + value.code + "</span>"
+              component += "</li>"
+          
+          $(".list-group").append(component);
+        });
+      });
+    }
+  });
+</script>

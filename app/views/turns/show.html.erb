@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @turn.code %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @turn.specialty %>
+</p>
+
+<p>
+  <strong>Cc:</strong>
+  <%= @turn.cc %>
+</p>
+
+<p>
+  <strong>Consultorio:</strong>
+  <%= @turn&.consulting_room&.name %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @turn.status %>
+</p>
+
+<%= form_with(model: @turn, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :specialty %>
+    <%= form.select :consulting_room_id, options_for_select(ConsultingRoom.all.map{ |c| [c.name, c.id] }) %>
+
+    <%= form.submit 'Atender' %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_turn_path(@turn) %> |
+<%= link_to 'Back', turns_path %>

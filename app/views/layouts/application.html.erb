@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Turnero</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to 'turnos', turns_path %>
+    <%= link_to 'Consultorios', consulting_rooms_path %>
+    <%= link_to 'Mostrar Turnos', show_turns_turns_path %>
+
+    <%= yield %>
+  </body>
+</html>

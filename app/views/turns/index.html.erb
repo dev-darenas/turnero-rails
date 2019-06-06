@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Turns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Especialidad</th>
+      <th>Code</th>
+      <th>Cc</th>
+      <th>Tiempo espera (min)</th>
+      <th>Estado</th>
+      <th>Consultorio</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turns.each do |turn| %>
+      <tr>
+        <td><%= turn.specialty %></td>
+        <td><%= turn.code %></td>
+        <td><%= turn.cc %></td>
+        <td><%= wait_time(turn) %></td>
+        <td><%= turn.status %></td>
+        <td><%= turn&.consulting_room&.name %></td>
+        <td><%= link_to 'Atender', turn %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Turn', new_turn_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Consulting Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Turno</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consulting_rooms.each do |consulting_room| %>
+      <tr>
+        <td><%= consulting_room.name %></td>
+        <td><%= consulting_room&.turns&.attending&.first&.code %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Consulting Room', new_consulting_room_path %>
