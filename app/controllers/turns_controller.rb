@@ -1,5 +1,6 @@
 class TurnsController < ApplicationController
   before_action :set_turn, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: :api_create
 
   # GET /turns
   # GET /turns.json
@@ -34,6 +35,15 @@ class TurnsController < ApplicationController
         format.html { render :new }
         format.json { render json: @turn.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def api_create
+    turn = Turn.new(turn_params)
+    if turn.save
+      render json: turn
+    else
+      render json: turn.errors, status: :unprocessable_entity
     end
   end
 
