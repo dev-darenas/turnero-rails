@@ -2,7 +2,7 @@
 
 <h1>Consulting Rooms</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,7 +14,7 @@
     <% @consulting_rooms.each do |consulting_room| %>
       <tr>
         <td><%= consulting_room.name %></td>
-        <td><%= consulting_room&.turns&.attending&.first&.code %></td>
+        <td><%= consulting_room&.turns&.attending&.first&.get_code %></td>
       </tr>
     <% end %>
   </tbody>
