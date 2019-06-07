@@ -9,10 +9,20 @@
   </head>
 
   <body>
-    <%= link_to 'turnos', turns_path %>
-    <%= link_to 'Consultorios', consulting_rooms_path %>
-    <%= link_to 'Mostrar Turnos', show_turns_turns_path %>
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <%= link_to 'turnos', turns_path %>
+        </li>
+        <li role="presentation">
+          <%= link_to 'Consultorios', consulting_rooms_path %>
+        </li>
+        <li role="presentation">
+          <%= link_to 'Mostrar Turnos', show_turns_turns_path %>
+        </li>
+      </ul>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

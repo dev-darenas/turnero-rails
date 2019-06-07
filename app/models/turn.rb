@@ -32,7 +32,7 @@ class Turn < ApplicationRecord
   end
 
   def get_code
-    code
+    specialty.humanize.titlecase.split(' ').map { |w| w[0] }.join('') + ' ' + code.to_s
   end
 
   def calculate_code

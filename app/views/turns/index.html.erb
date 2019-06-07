@@ -2,7 +2,7 @@
 
 <h1>Turns</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Especialidad</th>
@@ -19,7 +19,7 @@
     <% @turns.each do |turn| %>
       <tr>
         <td><%= turn.specialty %></td>
-        <td><%= turn.code %></td>
+        <td><%= turn.get_code %></td>
         <td><%= turn.cc %></td>
         <td><%= wait_time(turn) %></td>
         <td><%= turn.status %></td>

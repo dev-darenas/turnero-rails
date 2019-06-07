@@ -41,7 +41,7 @@ class TurnsController < ApplicationController
   def api_create
     turn = Turn.new(turn_params)
     if turn.save
-      render json: turn
+      render json: { code: turn.get_code, cc: turn.cc }
     else
       render json: turn.errors, status: :unprocessable_entity
     end

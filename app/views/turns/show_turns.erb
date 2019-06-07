@@ -24,6 +24,18 @@
           
           $(".list-group").append(component);
         });
+
+        $.each(data.data, function( index, value ) {
+          $.each(current_turns, function( index, value_t ) {
+            if(value.id == value_t.id && value.code != value_t.code ){
+              var audio = new Audio('/sound.mp3');
+              audio.play();
+              return;
+            }
+          })
+        })
+
+        current_turns = data.data
       });
     }
   });
